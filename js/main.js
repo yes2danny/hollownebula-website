@@ -31,29 +31,6 @@ if (reveals.length && "IntersectionObserver" in window) {
   reveals.forEach((el) => el.classList.add("is-visible"));
 }
 
-/* ── Respect reduced-motion for the logo video ── */
-const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-const logoVideos = document.querySelectorAll(".logo__video");
-
-function applyMotionPreference() {
-  logoVideos.forEach((video) => {
-    if (reduceMotion.matches) {
-      video.removeAttribute("autoplay");
-      video.removeAttribute("loop");
-      video.pause();
-    } else {
-      video.setAttribute("loop", "");
-      const play = video.play();
-      if (play && typeof play.catch === "function") play.catch(() => {});
-    }
-  });
-}
-
-applyMotionPreference();
-if (reduceMotion.addEventListener) {
-  reduceMotion.addEventListener("change", applyMotionPreference);
-}
-
 /* ── Rising bubbles ── */
 function initBubbles(container, count = 14) {
   if (!container) return;

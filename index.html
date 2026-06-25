@@ -4,7 +4,24 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hollow Nebula Interactive</title>
-  <meta name="description" content="Hollow Nebula Interactive — home of Reefling, a cozy desktop aquarium. Feed fish, collect 130+ species, decorate your tank. Coming to Steam.">
+  <meta name="description" content="Hollow Nebula Interactive — home of Reefling, a cozy desktop aquarium. Feed fish, collect 161 species, decorate your tank. Coming to Steam.">
+  <meta name="theme-color" content="#05050c">
+
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/favicon-180.png">
+
+  <!-- Social sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Hollow Nebula Interactive">
+  <meta property="og:title" content="Hollow Nebula Interactive">
+  <meta property="og:description" content="A one-person indie studio making calm games. Home of Reefling, a cozy desktop aquarium — coming to Steam.">
+  <meta property="og:url" content="https://hollownebulainteractive.com/">
+  <meta property="og:image" content="https://hollownebulainteractive.com/assets/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Hollow Nebula Interactive">
+  <meta name="twitter:description" content="A one-person indie studio making calm games. Home of Reefling, a cozy desktop aquarium — coming to Steam.">
+  <meta name="twitter:image" content="https://hollownebulainteractive.com/assets/og-image.jpg">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -20,7 +37,12 @@
   <header class="nav">
     <div class="shell nav__inner">
       <a class="logo" href="index.html">
-        <span class="logo__mark" aria-hidden="true"></span>
+        <span class="logo__mark" aria-hidden="true">
+          <video class="logo__video" autoplay muted loop playsinline>
+            <source src="assets/logo.webm" type="video/webm">
+            <source src="assets/logo.mp4" type="video/mp4">
+          </video>
+        </span>
         <span class="logo__text">
           Hollow Nebula
           <span>Interactive</span>
@@ -30,7 +52,7 @@
         <li><a href="#games">Games</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="support.html">Support</a></li>
-        <li><a class="btn btn--ghost" href="https://store.steampowered.com/" target="_blank" rel="noopener">Wishlist</a></li>
+        <li><span class="btn btn--ghost btn--soon" aria-disabled="true" title="Steam page coming soon">Wishlist soon</span></li>
       </ul>
     </div>
   </header>
@@ -79,6 +101,10 @@
               <span class="fish fish--4" data-fish>🐠</span>
               <span class="fish fish--5" data-fish>🐟</span>
             </div>
+            <div class="critters">
+              <span class="critter critter--crab">🦀</span>
+              <span class="critter critter--snail">🐌</span>
+            </div>
             <div class="aquarium__glass"></div>
             <div class="aquarium__shine"></div>
           </div>
@@ -97,20 +123,23 @@
             <li>Cozy</li>
             <li>Idle</li>
             <li>Desktop overlay</li>
-            <li>130+ fish</li>
+            <li>161 species</li>
             <li>No fail state</li>
           </ul>
-          <a class="btn btn--primary" href="https://store.steampowered.com/" target="_blank" rel="noopener">
-            Wishlist on Steam →
-          </a>
+          <div class="game-card__cta">
+            <span class="btn btn--primary btn--soon" aria-disabled="true">
+              Steam page coming soon
+            </span>
+            <p class="game-card__cta-note">Wishlisting opens the moment the Steam page goes live — check back soon.</p>
+          </div>
         </div>
       </article>
 
       <div class="game-details reveal">
         <div class="game-stats">
           <div class="game-stat">
-            <span class="game-stat__value">130+</span>
-            <span class="game-stat__label">Pixel-art species</span>
+            <span class="game-stat__value">161</span>
+            <span class="game-stat__label">Fish &amp; critter species</span>
           </div>
           <div class="game-stat">
             <span class="game-stat__value">Always-on</span>
@@ -142,7 +171,8 @@
             <p>
               Click to drop food and watch fish swim over to eat. Earn shells slowly over
               time — a gentle idle currency, not a grind. Spend them in the Store to bring
-              home new species from a roster of 130+ pixel-art fish.
+              home new species from a roster of 161 — 134 pixel-art fish plus seafloor
+              critters like snails, crabs, and starfish.
             </p>
           </div>
           <div class="feature-card">

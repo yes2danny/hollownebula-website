@@ -136,15 +136,31 @@ body {
 }
 
 .logo__mark {
-  width: 2rem;
-  height: 2rem;
+  position: relative;
+  width: 2.1rem;
+  height: 2.1rem;
+  flex: none;
   border-radius: 50%;
+  overflow: hidden;
   background:
     radial-gradient(circle at 35% 35%, var(--cyan), transparent 55%),
     radial-gradient(circle at 65% 65%, var(--purple), transparent 50%),
     var(--void-2);
   box-shadow: 0 0 24px rgba(124, 92, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   animation: logo-glow 4s ease-in-out infinite alternate;
+}
+
+/* The logo clip is wider than tall and holds the full lockup; zoom and
+   shift it so the orb frames just the glowing nebula swirl (no text). */
+.logo__video {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 400%;
+  height: auto;
+  transform: translate(-50%, -26%);
+  pointer-events: none;
 }
 
 @keyframes logo-glow {
@@ -311,6 +327,33 @@ body {
 .btn--ghost:hover {
   background: var(--glass-hover);
   border-color: rgba(255, 255, 255, 0.14);
+}
+
+/* Disabled "coming soon" state — looks like a button, but inert */
+.btn--soon,
+.btn--soon:hover {
+  color: var(--muted);
+  background: var(--glass);
+  border-color: var(--line);
+  box-shadow: none;
+  transform: none;
+  cursor: default;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.btn--soon::after {
+  display: none;
+}
+
+.btn--soon::before {
+  content: "";
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--reef);
+  box-shadow: 0 0 8px var(--reef);
+  animation: pulse 2.4s ease-in-out infinite;
 }
 
 /* ── Sections ── */
@@ -579,22 +622,65 @@ body {
   opacity: 0.75;
 }
 
+/* Emoji fish face LEFT by default, so flip (scaleX -1) to face RIGHT
+   when travelling rightward, and leave unflipped when travelling left. */
 @keyframes swim-right {
-  0%   { left: -12%; transform: scaleX(1) translateY(0); }
-  25%  { transform: scaleX(1) translateY(-5px); }
-  50%  { left: 88%; transform: scaleX(1) translateY(3px); }
-  50.1% { left: 88%; transform: scaleX(-1) translateY(3px); }
-  75%  { transform: scaleX(-1) translateY(-4px); }
-  100% { left: -12%; transform: scaleX(-1) translateY(0); }
+  0%   { left: -12%; transform: scaleX(-1) translateY(0); }
+  25%  { transform: scaleX(-1) translateY(-5px); }
+  50%  { left: 88%; transform: scaleX(-1) translateY(3px); }
+  50.1% { left: 88%; transform: scaleX(1) translateY(3px); }
+  75%  { transform: scaleX(1) translateY(-4px); }
+  100% { left: -12%; transform: scaleX(1) translateY(0); }
 }
 
 @keyframes swim-left {
-  0%   { left: 92%; transform: scaleX(-1) translateY(0); }
-  25%  { transform: scaleX(-1) translateY(4px); }
-  50%  { left: -8%; transform: scaleX(-1) translateY(-3px); }
-  50.1% { left: -8%; transform: scaleX(1) translateY(-3px); }
-  75%  { transform: scaleX(1) translateY(5px); }
-  100% { left: 92%; transform: scaleX(1) translateY(0); }
+  0%   { left: 92%; transform: scaleX(1) translateY(0); }
+  25%  { transform: scaleX(1) translateY(4px); }
+  50%  { left: -8%; transform: scaleX(1) translateY(-3px); }
+  50.1% { left: -8%; transform: scaleX(-1) translateY(-3px); }
+  75%  { transform: scaleX(-1) translateY(5px); }
+  100% { left: 92%; transform: scaleX(-1) translateY(0); }
+}
+
+/* ── Seafloor critters ── */
+.critters {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.critter {
+  position: absolute;
+  bottom: 13%;
+  font-size: 0.95rem;
+  line-height: 1;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.45));
+  will-change: transform, left;
+}
+
+.critter--crab {
+  animation: scuttle 18s ease-in-out infinite;
+}
+
+.critter--snail {
+  bottom: 12.5%;
+  font-size: 0.82rem;
+  opacity: 0.9;
+  animation: crawl 26s linear infinite;
+}
+
+@keyframes scuttle {
+  0%, 100% { left: 16%; transform: scaleX(1); }
+  8%       { transform: scaleX(1) translateY(-2px); }
+  46%      { left: 58%; transform: scaleX(1); }
+  50%      { left: 60%; transform: scaleX(-1); }
+  58%      { transform: scaleX(-1) translateY(-2px); }
+  96%      { left: 18%; transform: scaleX(-1); }
+}
+
+@keyframes crawl {
+  0%   { left: -8%; }
+  100% { left: 100%; }
 }
 
 .aquarium__glass {
@@ -770,6 +856,22 @@ body {
   border: 1px solid var(--line);
 }
 
+.game-card__cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.7rem;
+}
+
+.game-card__cta-note {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--muted);
+  font-weight: 300;
+  opacity: 0.85;
+}
+
 /* ── About strip ── */
 .about-grid {
   display: grid;
@@ -931,5 +1033,21 @@ body {
 @media (max-width: 600px) {
   .nav__links a:not(.btn) {
     display: none;
+  }
+
+  .brand {
+    width: min(440px, 100%);
+  }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }

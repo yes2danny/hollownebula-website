@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hollow Nebula Interactive</title>
+  <meta name="description" content="A small indie studio making calm, thoughtful games. Home of Reefling — a cozy desktop aquarium.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <div class="bg" aria-hidden="true">
+    <div class="bg__mesh"></div>
+    <div class="bg__grain"></div>
+  </div>
+
+  <header class="nav">
+    <div class="shell nav__inner">
+      <a class="logo" href="index.html">
+        <span class="logo__mark" aria-hidden="true"></span>
+        <span class="logo__text">
+          Hollow Nebula
+          <span>Interactive</span>
+        </span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="#games">Games</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a class="btn btn--ghost" href="https://store.steampowered.com/" target="_blank" rel="noopener">Wishlist</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero shell">
+      <p class="eyebrow">
+        <span class="eyebrow__dot" aria-hidden="true"></span>
+        Indie game studio
+      </p>
+      <h1>Small games,<br><em>quietly beautiful</em></h1>
+      <p class="hero__lead">
+        We make calm experiences that sit gently in your day — no grind, no stress,
+        just something lovely to come back to.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#games">See our games</a>
+        <a class="btn btn--ghost" href="support.html">Get support</a>
+      </div>
+    </section>
+
+    <section class="section shell" id="games">
+      <div class="reveal">
+        <p class="section__label">Now playing</p>
+        <h2>Our games</h2>
+        <p class="section__intro">
+          Thoughtfully crafted experiences for people who want their screen to feel a little warmer.
+        </p>
+      </div>
+
+      <article class="game-card reveal">
+        <div class="game-card__visual" aria-hidden="true">
+          <div class="game-card__tank">
+            <span class="fish">🐠</span>
+            <span class="fish">🐟</span>
+            <span class="fish">🐡</span>
+          </div>
+        </div>
+        <div class="game-card__body">
+          <span class="game-card__tag">Coming to Steam</span>
+          <h3>Reefling</h3>
+          <p>
+            A tiny, transparent aquarium that lives in the corner of your desktop.
+            Feed your fish, earn shells, and slowly collect 130+ pixel-art species.
+            No fail state — just peace.
+          </p>
+          <ul class="game-card__features">
+            <li>Cozy</li>
+            <li>Idle</li>
+            <li>Desktop overlay</li>
+            <li>130+ fish</li>
+          </ul>
+          <a class="btn btn--primary" href="https://store.steampowered.com/" target="_blank" rel="noopener">
+            Wishlist on Steam →
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <section class="section shell" id="about">
+      <div class="reveal">
+        <p class="section__label">The studio</p>
+        <h2>About us</h2>
+        <p class="section__intro">
+          Hollow Nebula Interactive is a one-person studio building games that respect your time.
+        </p>
+      </div>
+      <div class="about-grid reveal">
+        <div class="about-card">
+          <h3>Calm by design</h3>
+          <p>No hunger timers, no punishment. Our games are company, not chores.</p>
+        </div>
+        <div class="about-card">
+          <h3>Crafted with care</h3>
+          <p>Every shader, sprite, and sound is chosen to feel warm and alive.</p>
+        </div>
+        <div class="about-card">
+          <h3>Made to linger</h3>
+          <p>Slow discovery, gentle progression — the kind of game you keep open all day.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell">
+      <p>
+        © 2026 Hollow Nebula Interactive ·
+        <a href="support.html">Support</a> ·
+        <a href="mailto:support@hollownebulainteractive.com">Contact</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

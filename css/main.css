@@ -719,6 +719,19 @@ body {
   letter-spacing: -0.02em;
 }
 
+.game-card__title {
+  margin: 0 0 0.5rem;
+  line-height: 0;
+}
+
+.game-card__logo {
+  display: block;
+  width: clamp(220px, 78%, 360px);
+  height: auto;
+  margin-left: -0.1rem;
+  filter: drop-shadow(0 4px 18px rgba(94, 200, 232, 0.28));
+}
+
 .game-card__subtitle {
   margin: 0 0 0.85rem;
   font-size: 0.95rem;

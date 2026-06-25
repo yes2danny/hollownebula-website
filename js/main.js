@@ -1,4 +1,4 @@
-// Subtle scroll polish — no dependencies.
+// Subtle scroll polish + aquarium life — no dependencies.
 
 const nav = document.querySelector(".nav");
 const reveals = document.querySelectorAll(".reveal");
@@ -30,3 +30,50 @@ if (reveals.length && "IntersectionObserver" in window) {
 } else {
   reveals.forEach((el) => el.classList.add("is-visible"));
 }
+
+/* ── Rising bubbles ── */
+function initBubbles(container, count = 14) {
+  if (!container) return;
+
+  for (let i = 0; i < count; i++) {
+    const bubble = document.createElement("span");
+    bubble.className = "bubble";
+    const size = 4 + Math.random() * 7;
+    bubble.style.width = `${size}px`;
+    bubble.style.height = `${size}px`;
+    bubble.style.left = `${8 + Math.random() * 84}%`;
+    bubble.style.setProperty("--drift", `${-12 + Math.random() * 24}px`);
+    bubble.style.animationDuration = `${3.5 + Math.random() * 5}s`;
+    bubble.style.animationDelay = `${Math.random() * 6}s`;
+    container.appendChild(bubble);
+  }
+}
+
+initBubbles(document.querySelector(".bubbles"));
+
+/* ── Gentle tank tilt toward cursor ── */
+const tank = document.getElementById("reef-tank");
+const visual = document.querySelector(".game-card__visual");
+
+if (tank && visual && window.matchMedia("(hover: hover)").matches) {
+  visual.addEventListener("mousemove", (e) => {
+    const rect = visual.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    tank.style.transform = `perspective(800px) rotateY(${x * 6}deg) rotateX(${-y * 4 + 2}deg) scale(1.02)`;
+  });
+
+  visual.addEventListener("mouseleave", () => {
+    tank.style.transform = "perspective(800px) rotateX(2deg)";
+  });
+}
+
+/* ── Rare fish wiggle ── */
+document.querySelectorAll("[data-fish]").forEach((fish) => {
+  setInterval(() => {
+    if (Math.random() > 0.7) {
+      fish.style.transform += " scale(1.08)";
+      setTimeout(() => { fish.style.transform = ""; }, 200);
+    }
+  }, 4000 + Math.random() * 3000);
+});

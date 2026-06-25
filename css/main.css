@@ -572,27 +572,27 @@ body {
 
 .fish--1 {
   top: 22%;
-  animation: swim-right 14s ease-in-out infinite;
+  animation: swim-right 18s ease-in-out infinite;
   font-size: 1.5rem;
 }
 
 .fish--2 {
   top: 42%;
-  animation: swim-left 11s ease-in-out infinite;
+  animation: swim-left 14s ease-in-out infinite;
   animation-delay: -3s;
   font-size: 1.15rem;
 }
 
 .fish--3 {
   top: 58%;
-  animation: swim-right 16s ease-in-out infinite;
+  animation: swim-right 20s ease-in-out infinite;
   animation-delay: -7s;
   font-size: 1.25rem;
 }
 
 .fish--4 {
   top: 35%;
-  animation: swim-left 13s ease-in-out infinite;
+  animation: swim-left 16s ease-in-out infinite;
   animation-delay: -5s;
   font-size: 1rem;
   opacity: 0.85;
@@ -600,7 +600,7 @@ body {
 
 .fish--5 {
   top: 68%;
-  animation: swim-right 12s ease-in-out infinite;
+  animation: swim-right 15s ease-in-out infinite;
   animation-delay: -2s;
   font-size: 0.95rem;
   opacity: 0.75;
@@ -650,6 +650,8 @@ body {
   bottom: 12.5%;
   font-size: 0.82rem;
   opacity: 0.9;
+  /* emoji snail faces left by default; flip so it faces its rightward travel */
+  transform: scaleX(-1);
   animation: crawl 26s linear infinite;
 }
 

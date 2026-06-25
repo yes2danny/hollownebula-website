@@ -639,16 +639,117 @@ body {
 }
 
 .game-card h3 {
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.25rem;
   font-size: 1.65rem;
   font-weight: 500;
   letter-spacing: -0.02em;
+}
+
+.game-card__subtitle {
+  margin: 0 0 0.85rem;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--reef);
+  letter-spacing: 0.01em;
 }
 
 .game-card p {
   margin: 0 0 1.5rem;
   color: var(--muted);
   font-weight: 300;
+}
+
+/* ── Game details (below card) ── */
+.game-details {
+  margin-top: 2rem;
+}
+
+.game-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.game-stat {
+  padding: 1.1rem 1.25rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: linear-gradient(145deg, rgba(94, 200, 232, 0.06), var(--glass));
+  text-align: center;
+}
+
+.game-stat__value {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.25rem;
+}
+
+.game-stat__label {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.feature-card {
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: linear-gradient(160deg, var(--glass), rgba(124, 92, 255, 0.03));
+  transition: border-color 0.3s, transform 0.3s var(--ease), box-shadow 0.3s;
+}
+
+.feature-card:hover {
+  border-color: rgba(94, 200, 232, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.feature-card__icon {
+  display: block;
+  font-size: 1.35rem;
+  margin-bottom: 0.65rem;
+  filter: drop-shadow(0 0 12px rgba(94, 200, 232, 0.3));
+}
+
+.feature-card h4 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.feature-card p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.game-details__closing {
+  margin: 2rem 0 0;
+  padding: 1.5rem 1.75rem;
+  border-radius: var(--radius);
+  border: 1px solid rgba(94, 200, 232, 0.15);
+  background: linear-gradient(135deg, rgba(94, 200, 232, 0.08), rgba(124, 92, 255, 0.05));
+  text-align: center;
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: var(--muted);
+  font-style: italic;
 }
 
 .game-card__features {

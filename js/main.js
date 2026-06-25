@@ -67,13 +67,3 @@ if (tank && visual && window.matchMedia("(hover: hover)").matches) {
     tank.style.transform = "perspective(800px) rotateX(2deg)";
   });
 }
-
-/* ── Rare fish wiggle ── */
-document.querySelectorAll("[data-fish]").forEach((fish) => {
-  setInterval(() => {
-    if (Math.random() > 0.7) {
-      fish.style.transform += " scale(1.08)";
-      setTimeout(() => { fish.style.transform = ""; }, 200);
-    }
-  }, 4000 + Math.random() * 3000);
-});

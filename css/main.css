@@ -1524,14 +1524,33 @@ body {
   }
 }
 
-/* ── Reduced motion ── */
+/* ── Reduced motion ──
+   Respect the spirit of prefers-reduced-motion without going fully static.
+   The slow, contained ambient life (fish swimming, bubbles, the lizard, gentle
+   glows) stays alive so the page still feels warm. What we cut is the motion
+   that actually bothers people with vestibular sensitivity: full-viewport
+   background drift, cursor-driven parallax (disabled in JS), content that
+   slides in on scroll, and smooth scrolling. */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-    scroll-behavior: auto !important;
+  html {
+    scroll-behavior: auto;
+  }
+
+  /* No sweeping full-screen background movement */
+  .bg__mesh {
+    animation: none;
+  }
+
+  /* Content simply appears in place instead of sliding up */
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  /* Tanks rest flat — the cursor-tilt parallax is also disabled in main.js */
+  .aquarium,
+  .terrarium {
+    transition: none;
   }
 }

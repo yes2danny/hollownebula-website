@@ -54,6 +54,8 @@ initBubbles(document.querySelector(".bubbles"));
 /* ── Gentle tank tilt toward cursor (both the reef and the terrarium) ── */
 function addTilt(visual, tank, baseTiltX) {
   if (!visual || !tank || !window.matchMedia("(hover: hover)").matches) return;
+  // Honor reduced-motion: skip the cursor-driven parallax entirely.
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
   visual.addEventListener("mousemove", (e) => {
     const rect = visual.getBoundingClientRect();

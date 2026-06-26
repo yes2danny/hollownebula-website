@@ -370,6 +370,31 @@ body {
   font-weight: 300;
 }
 
+/* ── Trailer ── */
+.trailer {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius) + 4px);
+  overflow: hidden;
+  background: linear-gradient(160deg, rgba(94, 200, 232, 0.06), rgba(124, 92, 255, 0.04));
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+  transition: border-color 0.4s, box-shadow 0.4s;
+}
+
+.trailer:hover {
+  border-color: rgba(94, 200, 232, 0.22);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5), 0 0 60px rgba(94, 200, 232, 0.06);
+}
+
+.trailer__video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  background: #061018;
+  border-radius: inherit;
+}
+
 /* ── Game card ── */
 .game-card {
   display: grid;

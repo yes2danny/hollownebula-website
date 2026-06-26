@@ -395,11 +395,16 @@ body {
   opacity: 1;
 }
 
-@media (max-width: 480px) {
+/* On stacked (mobile) layout the art is centered in a wide panel, so the
+   corner pill ends up floating in empty space. Center it under the art. */
+@media (max-width: 767px) {
   .art-note {
+    left: 50%;
+    right: auto;
+    bottom: 0.7rem;
+    transform: translateX(-50%);
     font-size: 0.62rem;
-    bottom: 0.6rem;
-    right: 0.6rem;
+    opacity: 0.78;
   }
 }
 

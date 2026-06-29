@@ -69,7 +69,7 @@ function addTilt(visual, tank, baseTiltX) {
   });
 }
 
-addTilt(document.querySelector(".game-card__visual"), document.getElementById("reef-tank"), 2);
+addTilt(document.querySelector(".game-card__visual"), document.querySelector(".game-card__shot"), 0);
 addTilt(document.querySelector(".teaser__visual"), document.getElementById("next-tank"), 2);
 
 /* ── Dust motes drifting in the heat-lamp light ── */

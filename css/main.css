@@ -471,6 +471,27 @@ body {
   overflow: hidden;
 }
 
+/* Screenshot fills the panel edge to edge */
+.game-card__visual--shot {
+  padding: 0;
+}
+
+.game-card__shot {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  image-rendering: auto;
+  transition: transform 0.5s var(--ease);
+}
+
+.game-card:hover .game-card__shot {
+  transform: scale(1.03);
+}
+
 /* ── Aquarium scene ── */
 .aquarium {
   width: min(300px, 88%);
